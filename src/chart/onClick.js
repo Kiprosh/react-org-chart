@@ -6,9 +6,16 @@ module.exports = onClick
 function onClick(configOnClick) {
   const { loadConfig } = configOnClick
 
-  return datum => {
+  return (datum) => {
     if (d3.event.defaultPrevented) return
     const config = loadConfig()
+    const transformProp = d3.select(`#chevron-${datum.id}`).attr('transform')
+    const isDownward = transformProp.includes('180')
+    const newTransformProp = isDownward
+      ? transformProp.replace('180', '0')
+      : transformProp.replace('0', '180')
+    d3.select(`#chevron-${datum.id}`).attr('transform', newTransformProp)
+
     const { loadChildren, render, onPersonClick } = config
     event.preventDefault()
 
@@ -69,7 +76,7 @@ function onClick(configOnClick) {
 function handleChildrenResult(config, datum) {
   const { tree, render } = config
 
-  return children => {
+  return (children) => {
     const result = {
       ...datum,
       children,
@@ -78,7 +85,7 @@ function handleChildrenResult(config, datum) {
     // Collapse the nested children
     children.forEach(collapse)
 
-    result.children.forEach(child => {
+    result.children.forEach((child) => {
       if (!tree.nodes(datum)[0]._children) {
         tree.nodes(datum)[0]._children = []
       }
