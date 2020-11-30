@@ -182,8 +182,8 @@ function render(config) {
     .html('&#94;')
     .style('font-weight', 400)
     .style('font-size', 16)
-    .attr('x', 128)
-    .attr('y', 82)
+    .attr('x', 125.5)
+    .attr('y', 81)
 
   // Person's Avatar
   nodeEnter
