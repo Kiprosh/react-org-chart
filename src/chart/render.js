@@ -137,7 +137,7 @@ function render(config) {
     .attr('x', namePos.x)
     .attr('y', namePos.y)
     .attr('width', 110)
-    .attr('height', avatarWidth)
+    .attr('height', 36)
     .append('xhtml:div')
     .style('width', '90%')
     .style('overflow', 'hidden')

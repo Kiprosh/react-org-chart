@@ -56,8 +56,8 @@ function init(options) {
   // Reset in case there's any existing DOM
   elem.innerHTML = ''
 
-  const elemWidth = elem.offsetWidth
-  const elemHeight = elem.offsetHeight
+  const elemWidth = elem.offsetWidth || 1000
+  const elemHeight = elem.offsetHeight || 347
 
   // Setup the d3 tree layout
   config.tree = d3.layout
@@ -151,10 +151,10 @@ function init(options) {
     return d3
       .transition()
       .duration(350)
-      .tween('zoom', function() {
+      .tween('zoom', function () {
         var iTranslate = d3.interpolate(zoom.translate(), translate),
           iScale = d3.interpolate(zoom.scale(), scale)
-        return function(t) {
+        return function (t) {
           zoom.scale(iScale(t)).translate(iTranslate(t))
           zoomed()
         }
