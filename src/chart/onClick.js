@@ -83,7 +83,7 @@ function handleChildrenResult(config, datum) {
     }
 
     // Collapse the nested children
-    children.forEach(collapse)
+    // children.forEach(collapse)
 
     result.children.forEach((child) => {
       if (!tree.nodes(datum)[0]._children) {
