@@ -5,7 +5,7 @@ module.exports = {
 }
 
 function getTextForTitle(datum) {
-  if (!datum.person || !datum.person.totalReports) {
+  if (!datum.person) {
     return ''
   }
 

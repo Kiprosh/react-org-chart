@@ -58,7 +58,7 @@ module.exports=function(t){var e={};function n(r){if(e[r])return e[r].exports;va
   \******************************/
 /*! no static exports found */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){"use strict";t.exports={getTextForTitle:function(t){if(!t.person||!t.person.totalReports)return"";var e=t.person.totalReports;return e+" Lead"+(e>1?"s":"")},getTextForDepartment:function(t){if(!t.person.department)return"";var e=t.person.department;if(r[e])return r[e].toUpperCase();return t.person.department.substring(0,3).toUpperCase()},getCursorForNode:function(t){return t.children||t._children||t.hasChild?"pointer":"default"}};var r={Marketing:"mktg",Operations:"ops",Growth:"gwth",Branding:"brand",Assurance:"fin",Data:"data",Design:"design",Communications:"comms",Product:"prod",People:"people",Sales:"sales"}},
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){"use strict";t.exports={getTextForTitle:function(t){if(!t.person)return"";var e=t.person.totalReports;return e+" Lead"+(e>1?"s":"")},getTextForDepartment:function(t){if(!t.person.department)return"";var e=t.person.department;if(r[e])return r[e].toUpperCase();return t.person.department.substring(0,3).toUpperCase()},getCursorForNode:function(t){return t.children||t._children||t.hasChild?"pointer":"default"}};var r={Marketing:"mktg",Operations:"ops",Growth:"gwth",Branding:"brand",Assurance:"fin",Data:"data",Design:"design",Communications:"comms",Product:"prod",People:"people",Sales:"sales"}},
 /*!******************************************!*\
   !*** ./src/utils/covertImageToBase64.js ***!
   \******************************************/
