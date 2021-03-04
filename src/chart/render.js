@@ -127,7 +127,7 @@ function render(config) {
   }
 
   const circleProps = {
-    x: nodeWidth / 1.25,
+    x: nodeWidth / 1.15,
     y: nodeHeight / 1.25,
   }
 
@@ -184,7 +184,7 @@ function render(config) {
     .html('&#94;')
     .style('font-weight', 100)
     .style('font-size', 16)
-    .attr('x', 127.5)
+    .attr('x', 137.5)
     .attr('y', 82)
 
   // Person's Avatar
