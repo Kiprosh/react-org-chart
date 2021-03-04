@@ -184,7 +184,7 @@ function render(config) {
     .html('&#94;')
     .style('font-weight', 100)
     .style('font-size', 16)
-    .attr('x', 137.5)
+    .attr('x', 139.5)
     .attr('y', 82)
 
   // Person's Avatar
