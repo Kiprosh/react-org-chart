@@ -108,8 +108,7 @@ function render(config) {
     .append('path')
     .attr(
       'd',
-      `M${nodeBorderRadius} 0 h${
-        nodeWidth - 2 * nodeBorderRadius
+      `M${nodeBorderRadius} 0 h${nodeWidth - 2 * nodeBorderRadius
       } q${nodeBorderRadius},0 ${nodeBorderRadius},${nodeBorderRadius} h-${nodeWidth} q0,-${nodeBorderRadius} ${nodeBorderRadius},-${nodeBorderRadius}`
     )
     .attr('fill', (d) => d.nodeStatusColor || nodeStatusColor)
@@ -200,13 +199,13 @@ function render(config) {
       d.person.hasImage
         ? d.person.avatar
         : loadImage(d).then((res) => {
-            covertImageToBase64(res, function (dataUrl) {
-              d3.select(`#image-${d.id}`).attr('href', dataUrl)
-              d.person.avatar = dataUrl
-            })
-            d.person.hasImage = true
-            return d.person.avatar
+          covertImageToBase64(res, function (dataUrl) {
+            d3.select(`#image-${d.id}`).attr('href', dataUrl)
+            d.person.avatar = dataUrl
           })
+          d.person.hasImage = true
+          return d.person.avatar
+        })
     })
     .attr('src', (d) => d.person.avatar)
     .attr('href', (d) => d.person.avatar)
@@ -229,6 +228,23 @@ function render(config) {
     .duration(animationDuration)
     .attr('transform', (d) => `translate(${parentNode.x},${parentNode.y})`)
     .remove()
+
+  const redirectLink = nodeEnter.append('a').attr('href', (d) => `/marketing/dashboard/${d.person.id}`)
+    .append('g')
+    .attr('id', (d) => `link-${d.person.id}`)
+    .attr('width', 20)
+    .attr('height', 20)
+    .style('cursor', 'pointer')
+    .style('border', '1px solid black')
+    .attr('x', 20)
+    .attr('y', 20)
+
+  redirectLink
+    .append('text').html('&#8599;')
+    .style('font-weight', 100)
+    .style('font-size', 24)
+    .attr('x', 134)
+    .attr('y', 40)
 
   // Update the links
   const link = svg.selectAll('path.link').data(links, (d) => d.target.id)
